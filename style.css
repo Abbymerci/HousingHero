@@ -2,12 +2,11 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    
 }
 
 header{
  display: flex;   
- background-color:#BAC3DF;
+ background-color:#badfd5;
  margin: auto;
  align-items: center;
  height: 50px;

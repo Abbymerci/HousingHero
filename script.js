@@ -47,13 +47,16 @@ function create() {
             console.log("Error: " + error.code + " " + error.message);       
         });
     })
-function signUp() {
-    document.getElementById("sign-el").style.display = 'block';
-}
 
-function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-}
 document.getElementById("ret-but").addEventListener("click", function () {
     create();
   });
+
+  function signUp() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    documen.getElementById("myForm").style.display = "none";
+
+  }

@@ -37,27 +37,27 @@
                     <!--<li><a class="nav-link" href="#">Team</a></li>-->
                     <li><a class="nav-link" href="#feedback">Feedback</a></li>
                     <li><a class="nav-link" href="#convo">Join the Conversation</a></li>
-                    <button class = "navbar-item-right"><a href="signin.html"> Sign Up</a></button>
-
+                    <!-- <button class = "navbar-item-right"><a href="signin.html"> Sign Up</a></button> -->
                    
                 </ul>
             </nav>
         </header>
-
+        <button class = "open-button" onClick = "signUp()">Sign Up</button>
+                    <div class= "form-popup" id="myForm">
+                        <form class="form-container">
+                          <h2>Welcome to Hosuing Hero</h2>
+                          <label for="username">Username</label>
+                          <input type="text" id="username" name="username" required>
+                          <label for="password">Password</label>
+                          <input type="password" id="password" name="password" required>
+                         <button  type="submit" class = "btn"><a href="houses.html">Sign In</a></button>
+                          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                        </form>
+                      </div>
 
 
 
         <script src="script.js"></script>
-        <div id="login">
-            <label>UserName</label>
-            <input id="username" type="text" placeholder="Username" />
-
-            <label>Password</label>
-            <input id="Password" type="text" placeholder="...." />
-
-            <a href="houses.html"><button >Sign In</button></a>
-
-        </div>
     </body>
     
 </html>

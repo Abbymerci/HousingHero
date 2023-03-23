@@ -51,4 +51,3 @@ Parse.initialize("kZh3SCYIQnQ3OkI1Euet7scVhDLkgwfyNai57hqj", "FbBxp4yolPxAb8ALib
             console.log("Error: " + error.code + " " + error.message);       
         });
     })
-

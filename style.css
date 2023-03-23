@@ -102,3 +102,19 @@ header{
   }
 
   
+  a{
+    outline:none;
+    text-decoration: none;
+    color: #2f1e1e;
+   }
+
+
+   .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+
+   }

@@ -10,12 +10,18 @@ function create() {
     var in2 = document.getElementById("email").value
     var in3 = document.getElementById("income").value
     var in4 = document.getElementById("down").value
+    var in5 = document.getElementById("mon").value
+    var in6 = document.getElementById("min").value
+    var in7 = document.getElementById("max").value
     console.log(in1)
     let mypet = new Pet();
     mypet.set("Name", in1);
     mypet.set("Email", in2);
     mypet.set("AnnIncome", in3);
     mypet.set("InitDown", in4);
+    mypet.set("Mon", in5);
+    mypet.set("HouMin", in6);
+    mypet.set("HouMax", in7);
     mypet.save().then(function(pet){
          console.log('Pet created successful with name: ' + pet.get("Name"));
     }).catch(function(error){

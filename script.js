@@ -27,6 +27,13 @@ function create() {
     }).catch(function(error){
          console.log('Error: ' + error.message);
     });
+    in1.value = ""
+    in2.value = ""
+    in3.value = ""
+    in4.value = ""
+    in5.value = ""
+    in6.value = ""
+    in7.value = ""
 }
 
 document.getElementById("ret-but").addEventListener("click", function () {

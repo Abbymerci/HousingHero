@@ -23,6 +23,31 @@ function create() {
     });
 }
 
+    document.getElementById("ret-but").addEventListener("click",function(){
+        query = new Parse.Query("User");
+        query.equalTo("username", "ef");
+        query.first().then(function(pet){
+            if(pet){
+            console.log('Pet found successful with name: ' + pet.get("name") + ' and age: ' + pet.get("agePet"));
+            nrender = `
+                <h1>
+                    ${pet.get("username")}
+                </h1>`
+            divi.innerHTML = nrender
+            } else {
+            console.log("Nothing found, please try again");
+            }
+        }).catch(function(error){
+            console.log("Error: " + error.code + " " + error.message);       
+        });
+    })
+function signUp() {
+    document.getElementById("sign-el").style.display = 'block';
+}
+
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}
 document.getElementById("ret-but").addEventListener("click", function () {
     create();
   });

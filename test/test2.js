@@ -4,6 +4,7 @@ Parse.serverURL = "https://parseapi.back4app.com/";
 var setid = "9ZMGDCEAaF"
 var DateArr = []
 
+const streakr = document.getElementById("streak-p")
 // Define the name of the class you want to query
 const className = "MonthlyPaymentsUser";
 
@@ -22,20 +23,50 @@ function compare1(d1,d2,dc,st,sa){
     if((d1 < d2) && (dc > d2)){
         st += 1
         console.log("Here1")
-        sa.push("-")
     }
     else {
         st = 0
         console.log("Here2")
-        sa.push(".")
+        sa+=1
     }
-    return st
+    return st,sa
 }
 
+function HScore(streaks,stloss){
+  streaks = parseInt(streaks,10)
+  const query2 = new Parse.Query("UserData")
+  query2.equalTo("objectId", setid);
+  query2.first().then(function(mon){
+    if(mon){
+       console.log('Pet found successful with name:--- ' + mon.get("Mon"));
+        let stvalue = (((streaks)* (0.75^stloss)))
+        let hscore = (stvalue *0.9) + (mon.get("Mon") *0.1);
+
+        if (hscore > 500){
+          hscore = 500
+        }
+        console.log("Final Score:" + hscore)
+    } else {
+       console.log("Nothing found, please try again");
+    }
+}).catch(function(error){
+    console.log("Error: " + error.code + " " + error.message);       
+});
+console.log("NEWWWWWWWWWWWWW")
+  fs = `
+  <p>
+    ${streaks} Months
+  </p>`
+  streakr.innerHTML = fs
+
+  
+
+
+}
 
 function Streak(datearr) {
     let streak = 0;
-    let streakarr = [];
+    let stval = [];
   
     if (datearr != []) {
       for (let j = 0; j < datearr.length; j++) {
@@ -48,17 +79,19 @@ function Streak(datearr) {
           let d2 = datearr[j+1];
 
           if (sec < datearr.length){
-            streak = compare1(d1,d2,oneMonthInFuture,streak,streakarr) 
+            streak,loss = compare1(d1,d2,oneMonthInFuture,streak,stval) 
             console.log(d1,d2,oneMonthInFuture)
           }
 
           if (sec === datearr.length){
             d2 =  new Date();
-            streak = compare1(d1,d2,oneMonthInFuture,streak,streakarr) 
+            //d2 = new Date("2023-08-20")
+            streak,loss = compare1(d1,d2,oneMonthInFuture,streak,stval) 
           }
         }
       }
     }
+    HScore(streak,loss);
     console.log(streak + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
   }
 

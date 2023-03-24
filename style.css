@@ -1,3 +1,25 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+body::before {
+    content: "";
+    background-position: center;
+    background-size: cover;
+    filter: blur(2px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
 * {
     margin: 0px;
     padding: 0px;
@@ -6,7 +28,7 @@
 
 header{
  display: flex;   
- background-color:#badfd5;
+ background-color:#5899d6e9;
  margin: auto;
  align-items: center;
  height: 50px;
@@ -84,13 +106,13 @@ header{
     padding: 10px 20px;
     border: none;
     border-radius: 3px;
-    background-color: #4CAF50;
+    background-color: #215fd2;
     color: white;
     cursor: pointer;
   }
   
   button:hover {
-    background-color: #3e8e41;
+    background-color: #131dda;
   }
   
   .navbar-item-right {
@@ -108,7 +130,7 @@ header{
     color: #2f1e1e;
    }
 
-
+/* 
    .form-popup {
     display: none;
     position: fixed;
@@ -117,10 +139,27 @@ header{
     border: 3px solid #f1f1f1;
     z-index: 9;
 
-   }
+   } */
+   .form-popup {
+    position: fixed;
+    height: 25rem;
+    width: 22rem;
+    background-color: #fff;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    align-self: center;
+    top: 180px;
+    left: 500px;
+    border-radius: 20px 20px 20px 20px;
+    
+  }
+  
+
 
    .open-button {
-    background-color: #555;
+    background-color: #1b5ea1;
     color: white;
     padding: 16px 20px;
     border: none;
@@ -129,19 +168,15 @@ header{
     position: fixed;
     bottom: 23px;
     right: 28px;
-    width: 280px;
+    width: 200px;
   }
+  
   
 
-  .form-container {
-    max-width: 300px;
-    padding: 10px;
-    background-color: white;
-  }
   
   /* Full-width input fields */
-  .form-container input[type=text], .form-container input[type=password] {
-    width: 100%;
+  .form-popup input[type=text], .form-popup input[type=password] {
+    width: 60%;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
@@ -149,28 +184,161 @@ header{
   }
   
   /* When the inputs get focus, do something */
-  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  .form-popup input[type=text]:focus, .form-popup input[type=password]:focus {
     background-color: #ddd;
     outline: none;
   }
 
-  .form-container .btn {
-    background-color: #04AA6D;
+  .form-popup .btn {
+    background-color: #0468aa;
     color: white;
     padding: 16px 20px;
-    border: none;
+    border: 10px;
     cursor: pointer;
-    width: 100%;
+    width: 50%;
     margin-bottom:10px;
     opacity: 0.8;
   }
   
   /* Add a red background color to the cancel button */
-  .form-container .cancel {
-    background-color: red;
+  .form-popup .cancel {
+    background-color: rgb(255, 0, 0);
   }
   
   /* Add some hover effects to buttons */
-  .form-container .btn:hover, .open-button:hover {
+  .form-popup .btn:hover, .open-button:hover {
     opacity: 1;
   }
+
+ .housemain{
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: bold;
+    text-align: left;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  .h2text{
+    font-family: 'PT Sans', sans-serif;
+    text-align: center;
+    margin-top: 1em;
+    font-size: 2em;
+    margin-bottom: em;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5em;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    padding: 0.5em;
+    border-radius: 0.25em;
+    border: 1px solid #ccc;
+    margin-bottom: 1em;
+  }
+  
+/* slider */
+ /* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} */
+.image-body {
+    box-sizing: border-box;
+    display: flex;
+    margin: 0;
+    padding: 10px;
+    justify-content: left;
+    align-items: center;
+    overflow-x: scroll;
+    margin-top:1%;
+    margin-bottom:0%;
+
+
+}
+.slider {
+    position: relative;
+    width: 60%;
+    overflow: hidden;
+  
+}
+.images {
+    display: flex;
+    width: 100%;
+}
+.images img {
+    height: 100px;
+    width: 100%;
+    transition: all 0.15s ease;
+    object-fit:cover;
+    height: auto;
+
+
+}
+.images input {
+    display: none;
+}
+.dots {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    
+}
+.dots label {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: solid #fff 3px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    margin: 5px;
+    background: rgb(15, 30, 160);
+}
+.dots label:hover {background: #fff;}
+#img1:checked ~ .m1 {
+    margin-left:0
+}
+#img2:checked ~ .m2 {
+    margin-left: -100%;
+}
+#img3:checked ~ .m3 {
+    margin-left: -200%;
+}
+#img4:checked ~ .m4 {
+    margin-left:0
+}
+#img5:checked ~ .m5 {
+    margin-left: -100%;
+}
+#img6:checked ~ .m6 {
+    margin-left: -200%;
+}
+
+#img7:checked ~ .m7 {
+    margin-left:0
+}
+#img8:checked ~ .m8 {
+    margin-left: -100%;
+}
+#img9:checked ~ .m9 {
+    margin-left: -200%;
+}
+
+
+
+
+.image-wrapper img {
+    float: right;
+    margin-left: 40px;
+  } */
+  
+.image-wrapper p {
+    overflow: hidden;
+  }
+
+

@@ -40,7 +40,6 @@ function create() {
          console.log('Error: ' + error.message);
     });
 
-    console.log("HERRERRR")
     mypay.save().then(function(pay1){
       console.log('Pay created successful with name: ' + pay1.get("PaymentAmount"));
     }).catch(function(error){
@@ -54,17 +53,17 @@ function create() {
     in5.value = ""
     in6.value = ""
     in7.value = ""
+    return mypet
 }
 
 document.getElementById("ret-but").addEventListener("click", function () {
-    create();
+    an = create();
   });
 
-  function signUp() {
+function signUp() {
     document.getElementById("myForm").style.display = "block";
-  }
+}
   
-  function closeForm() {
-    documen.getElementById("myForm").style.display = "none";
-
-  }
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}

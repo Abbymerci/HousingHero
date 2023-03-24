@@ -27,6 +27,17 @@ function compare1(d1,d2,dc,st,sa){
     }
     return st,sa
 }
+
+function Htrender(s,h,d){
+  var Srender = document.getElementById("streak-p")
+  var Hrender = document.getElementById("Hero")
+  var Nrender = document.getElementById("Nextpay")
+
+
+Srender.textContent = s + "Months" 
+  
+}
+
 function render() {
   const queryt = new Parse.Query(className);
   queryt.equalTo("ID", objectId);
@@ -50,9 +61,11 @@ function render() {
 }, (error) => {
   console.error("Error while retrieving rows with ID ", objectId, ": ", error);
 });
+
+ 
 }
 
-function HScore(streaks,stloss){
+function HScore(streaks,stloss,d2){
   streaks = parseInt(streaks,10)
   const query2 = new Parse.Query("UserData")
   query2.equalTo("objectId", setid);
@@ -73,12 +86,9 @@ function HScore(streaks,stloss){
     console.log("Error: " + error.code + " " + error.message);       
 });
 console.log("NEWWWWWWWWWWWWW")
-  fs = `
-  <p>
-    ${streaks} Months
-  </p>`
-  //streakr.innerHTML = fs
+  
   render()
+  Htrender(streaks,hscore,d2)
   
 
 
@@ -111,7 +121,7 @@ function Streak(datearr) {
         }
       }
     }
-    HScore(streak,loss);
+    HScore(streak,loss,d2);
     console.log(streak + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
   }
 

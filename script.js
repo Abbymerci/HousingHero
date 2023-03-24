@@ -22,16 +22,16 @@ function create() {
     mypet.set("Mon", in5);
     mypet.set("HouMin", in6);
     mypet.set("HouMax", in7);
-    console.log(in1)
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
-    today = yyyy + '-' + mm + '-' + dd;
+    var currdate = new Date(yyyy + "-" + mm + "-" +dd)
 
-    let mypay = new payment("MonthlyPaymentsUser")
-    //mypay.set("PaymentDate",today)
-    mypay.set("PaymentAmount",mon)
+
+    let mypay = new payment();
+    mypay.set("PaymentDate",currdate)
+    mypay.set("PaymentAmount",in5)
     mypay.set("ID",mypet)
 
     mypet.save().then(function(pet){
@@ -40,8 +40,9 @@ function create() {
          console.log('Error: ' + error.message);
     });
 
+    console.log("HERRERRR")
     mypay.save().then(function(pay1){
-      console.log('Pet created successful with name: ' + pay1.get("PaymentAmount"));
+      console.log('Pay created successful with name: ' + pay1.get("PaymentAmount"));
     }).catch(function(error){
       console.log('Error: ' + error.message);
     });
@@ -53,7 +54,6 @@ function create() {
     in5.value = ""
     in6.value = ""
     in7.value = ""
-    return mypay
 }
 
 document.getElementById("ret-but").addEventListener("click", function () {

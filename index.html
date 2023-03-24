@@ -10,7 +10,9 @@
     </head>
 
 
-    <body>
+    <body style="background-image: url('homepic.png'); background-size: cover;">
+
+
  
 
         <header id="navbar">
@@ -19,14 +21,12 @@
             </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a class="nav-link" href="#">Welcome</a></li>
-                    <li><a class="nav-link" href="#Keymilestones">Key Milestones</a></li>
+                    <li><a class="nav-link" >Welcome</a></li>
                     <!--<li><a class="nav-link" href="#Checklist">Checklist</a></li>-->
-                    <li><a class="nav-link" href="#support">Support</a></li>
-                    <li><a class="nav-link" href="#benefits">Key Benefits</a></li>
-                    <li><a class="nav-link" href="#community">Community</a></li>
+                    <li><a class="nav-link" href="supportpage.html">Support</a></li>
+                    <li><a class="nav-link" href="benefit.html">Key Benefits</a></li>
                     <!--<li><a class="nav-link" href="#">Team</a></li>-->
-                    <li><a class="nav-link" href="#feedback">Feedback</a></li>
+                    <li><a class="nav-link" href="feedback.html">Feedback</a></li>
                     <li><a class="nav-link" href="#convo">Join the Conversation</a></li>
                     <!-- <button class = "navbar-item-right"><a href="signin.html"> Sign Up</a></button> -->
                    
@@ -36,18 +36,36 @@
         <button class = "open-button" onClick = "signUp()">Sign Up</button>
         
                     <div class= "form-popup" id="myForm">
-                          <h2>Welcome to Hosuing Hero</h2>
                           <label for="username">Username</label>
                           <input type="text" id="username" name="username" required>
                           <label for="password">Password</label>
                           <input type="password" id="password" name="password" required>
                          <button  type="submit" class = "btn"><a href="houses.html">Sign In</a></button>
                           <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                          <p><a href="forgotp.html">Forgot password</a></p>
                         </form>
                       </div>
 
-
-
+                    
+                        <!-- <section class="features">
+                          <h2>Why Choose Housing Hero?</h2>
+                          <div class="feature">
+                            <h3>Extensive Listings</h3>
+                            <p>Access a wide range of property listings to find the perfect home for you.</p>
+                          </div>
+                          <div class="feature">
+                            <h3>Personalized Recommendations</h3>
+                            <p>Receive personalized recommendations based on your preferences and needs.</p>
+                          </div>
+                          <div class="feature">
+                            <h3>Expert Support</h3>
+                            <p>Get expert advice and support from our dedicated team of real estate professionals.</p>
+                          </div>
+                        </section>
+                    
+                      <footer>
+                        <p>&copy; 2023 Housing Hero. All rights reserved.</p>
+                      </footer> -->
         <script src="script.js"></script>
     </body>
     

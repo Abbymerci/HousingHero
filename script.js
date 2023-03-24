@@ -2,7 +2,7 @@ Parse.initialize("kZh3SCYIQnQ3OkI1Euet7scVhDLkgwfyNai57hqj", "FbBxp4yolPxAb8ALib
 Parse.serverURL = "https://parseapi.back4app.com/";
 
 var Pet = Parse.Object.extend("UserData");
-
+var payment = Parse.Object.extend("MonthlyPaymentsUser");
 
 
 function create() {
@@ -13,7 +13,7 @@ function create() {
     var in5 = document.getElementById("mon").value
     var in6 = document.getElementById("min").value
     var in7 = document.getElementById("max").value
-    console.log(in1)
+
     let mypet = new Pet();
     mypet.set("Name", in1);
     mypet.set("Email", in2);
@@ -22,11 +22,30 @@ function create() {
     mypet.set("Mon", in5);
     mypet.set("HouMin", in6);
     mypet.set("HouMax", in7);
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    var currdate = new Date(yyyy + "-" + mm + "-" +dd)
+
+
+    let mypay = new payment();
+    mypay.set("PaymentDate",currdate)
+    mypay.set("PaymentAmount",in5)
+    mypay.set("ID",mypet)
+
     mypet.save().then(function(pet){
          console.log('Pet created successful with name: ' + pet.get("Name"));
     }).catch(function(error){
          console.log('Error: ' + error.message);
     });
+
+    mypay.save().then(function(pay1){
+      console.log('Pay created successful with name: ' + pay1.get("PaymentAmount"));
+    }).catch(function(error){
+      console.log('Error: ' + error.message);
+    });
+
     in1.value = ""
     in2.value = ""
     in3.value = ""
@@ -34,36 +53,17 @@ function create() {
     in5.value = ""
     in6.value = ""
     in7.value = ""
+    return mypet
 }
 
-    document.getElementById("ret-but").addEventListener("click",function(){
-        query = new Parse.Query("User");
-        query.equalTo("username", "ef");
-        query.first().then(function(pet){
-            if(pet){
-            console.log('Pet found successful with name: ' + pet.get("name") + ' and age: ' + pet.get("agePet"));
-            nrender = `
-                <h1>
-                    ${pet.get("username")}
-                </h1>`
-            divi.innerHTML = nrender
-            } else {
-            console.log("Nothing found, please try again");
-            }
-        }).catch(function(error){
-            console.log("Error: " + error.code + " " + error.message);       
-        });
-    })
-
 document.getElementById("ret-but").addEventListener("click", function () {
-    create();
+    an = create();
   });
 
-  function signUp() {
+function signUp() {
     document.getElementById("myForm").style.display = "block";
-  }
+}
   
-  function closeForm() {
-    documen.getElementById("myForm").style.display = "none";
-
-  }
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}

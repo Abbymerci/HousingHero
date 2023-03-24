@@ -9,13 +9,12 @@
         <title>Housing Hero</title>
     </head>
 
-
     <body>
  
 
         <header id="navbar">
             <div class="logo-container">
-                <img src= "logo2.png" alt="logo">
+                <img src= "logo.png" alt="logo">
             </div>
             <nav>
                 <ul class="nav-links">
@@ -33,22 +32,13 @@
                 </ul>
             </nav>
         </header>
-        <button class = "open-button" onClick = "signUp()">Sign Up</button>
-        
-                    <div class= "form-popup" id="myForm">
-                          <h2>Welcome to Hosuing Hero</h2>
-                          <label for="username">Username</label>
-                          <input type="text" id="username" name="username" required>
-                          <label for="password">Password</label>
-                          <input type="password" id="password" name="password" required>
-                         <button  type="submit" class = "btn"><a href="houses.html">Sign In</a></button>
-                          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                        </form>
-                      </div>
-
-
-
-        <script src="script.js"></script>
+        <main>
+            <section id = "payment-sect">
+                <label>Make Payments</label>
+                <input type="text" id="pay-inp" name="pay">
+                <button id="pay-id"> Pay!</button>
+            </section>
+        </main>
+    <script src="pay.js"></script>
     </body>
-    
 </html>

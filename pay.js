@@ -10,7 +10,7 @@ function createpay(){
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0');
     var yyyy = today.getFullYear();
-    var currdate = new Date(yyyy + "-" + mm + "-" + dd)
+    var currdate = new Date(today)
 
     var paym = document.getElementById("pay-inp").value
 

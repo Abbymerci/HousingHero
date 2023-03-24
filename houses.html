@@ -5,13 +5,16 @@
         <meta name="viewport" content="width = device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <title>Housing Hero</title>
     </head>
     <body>
         <header id="navbar">
             <div class="logo-container">
-                <img src= "logo.png" alt="logo">
+                <img src= "logo2.png" alt="logo">
             </div>
             <nav>
                 <ul class="nav-links">
@@ -23,12 +26,14 @@
                     <li><a class="nav-link" href="#community">Community</a></li>
                     <!--<li><a class="nav-link" href="#">Team</a></li>-->
                     <li><a class="nav-link" href="#feedback">Feedback</a></li>
+                    <li><a class="nav-link" href="calculator.html">Calculator</a></li>
                     <li><a class="nav-link" href="#convo">Join the Conversation</a></li>
                 </ul>
             </nav>
         </header>
-
-        <main>
+    </body>
+        <main class = "housemain">
+            <h2 class="h2text">User Profile</h2>
             <section id="form">
                 <div>
                     <label>Name</label>
@@ -64,7 +69,6 @@
                     <label>House Price (Max)</label>
                     <input id="max" type="text" placeholder="$" />
                 </div>
-
                 
                 <button id="ret-but">
                     Register!
@@ -72,7 +76,6 @@
                 
             </section>
         </main>
-
+    
     <script src="script.js"></script>
-    </body>
 </html>

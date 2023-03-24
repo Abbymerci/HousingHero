@@ -27,7 +27,7 @@ body::before {
 }
 
 header{
- display: flex;   
+ display: flex;    
  background-color:#FFC93C;
  margin: auto;
  align-items: center;

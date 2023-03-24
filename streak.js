@@ -44,10 +44,5 @@ query.find().then((results) => {
   console.error("Error while retrieving rows with ID ", objectId, ": ", error);
 });
 console.log(DateArr.sort())
-
-
-
 }
-
-
 document.onload = test();

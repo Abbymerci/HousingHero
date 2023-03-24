@@ -4,6 +4,7 @@ Parse.serverURL = "https://parseapi.back4app.com/";
 var setid = "9ZMGDCEAaF"
 var DateArr = []
 var streakr = document.getElementById("streak-p")
+var Hero = document.getElementById
 
 
 // Define the name of the class you want to query
@@ -147,3 +148,8 @@ query.find().then((results) => {
 }, (error) => {
   console.error("Error while retrieving rows with ID ", objectId, ": ", error);
 });
+
+
+
+
+

@@ -3,8 +3,9 @@ Parse.serverURL = "https://parseapi.back4app.com/";
 
 var setid = "9ZMGDCEAaF"
 var DateArr = []
+var streakr = document.getElementById("streak-p")
 
-const streakr = document.getElementById("streak-p")
+
 // Define the name of the class you want to query
 const className = "MonthlyPaymentsUser";
 
@@ -12,12 +13,6 @@ const className = "MonthlyPaymentsUser";
 const objectId = { "__type": "Pointer", "className": "UserData", "objectId": "9ZMGDCEAaF"};
 
 // Create a new query for the class
-const query = new Parse.Query(className);
-
-// Use the equalTo method to add a constraint to the query
-query.equalTo("ID", objectId);
-query.ascending("PaymentDate")
-
 function compare1(d1,d2,dc,st,sa){
     console.log(d1,d2,dc)
     if((d1 < d2) && (dc > d2)){
@@ -30,6 +25,30 @@ function compare1(d1,d2,dc,st,sa){
         sa+=1
     }
     return st,sa
+}
+function render() {
+  const queryt = new Parse.Query(className);
+  queryt.equalTo("ID", objectId);
+  query.find().then((results) => {
+  for (let i = 0; i < results.length; i++){
+    var add = results[i].id
+    //console.log(add)
+    let nquery = new Parse.Query(className);
+    nquery.equalTo("objectId", add);
+    nquery.first().then(function(pet){
+        if(pet){
+           console.log(pet.get("PaymentAmount"))
+        } else {
+           console.log("Nothing found, please try again");
+        }
+    }).catch(function(error){
+        console.log("Error: " + error.code + " " + error.message);       
+    });
+
+  }
+}, (error) => {
+  console.error("Error while retrieving rows with ID ", objectId, ": ", error);
+});
 }
 
 function HScore(streaks,stloss){
@@ -57,8 +76,8 @@ console.log("NEWWWWWWWWWWWWW")
   <p>
     ${streaks} Months
   </p>`
-  streakr.innerHTML = fs
-
+  //streakr.innerHTML = fs
+  render()
   
 
 
@@ -96,6 +115,9 @@ function Streak(datearr) {
   }
 
 // Use the find method to retrieve all the objects that match the query
+const query = new Parse.Query(className);
+query.equalTo("ID", objectId);
+query.ascending("PaymentDate")
 query.find().then((results) => {
   for (let i = 0; i < results.length; i++){
     var add = results[i].id
